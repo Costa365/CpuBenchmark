@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CPU Benchmark</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/site.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/19.1.4/styles/ag-grid.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/19.1.4/styles/ag-theme-balham.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/19.1.4/ag-grid-community.min.noStyle.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/site.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="." class="navbar-brand"><img style="margin-right: -12px; margin-top: -2px" src="images/cpu_nav.png"></a>
+                <a href="." class="navbar-brand">CPU Information</a>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content"> 
+		<br />
+		<div class="row">
+			<div class="col-md-5">
+				<form>
+					<div class="input-group">
+						<input type="text" id="cpu-name" class="form-control" placeholder="CPU E.g. i7-8550u">
+						<span class="input-group-btn" style="width:0;">
+							<button class="btn btn-primary" id="view-details-button" type="button">View Details</button>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<p></p>
+		<div id="cpu-info-results-grid" style="display: none;">
+			<div id="resultsGrid" style="height: 507px;width:1150px;" class="ag-theme-balham"></div>
+		</div>
+		<hr />
+		<div>
+			<img src="images/amd_intel3.png" width="334">
+		</div>
+		<hr />
+		<footer>
+			<p><i>CPU information and benchmarks provided by: </i> <a href="http://www.passmark.com">Passmark</a></p>
+			<p><i>Technology used: </i>
+				<a href="http://php.net/">PHP</a> |
+				<a href="https://www.mysql.com/">MySQL</a> |
+				<a href="https://www.ag-grid.com/">ag-Grid</a> |
+				<a href="https://getbootstrap.com/">Bootstrap</a>
+			</p>
+		</footer>
+	</div>
+</body>
+</html>
