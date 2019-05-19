@@ -17,22 +17,33 @@ function getCpuConnection() {
   return $conn;
 }
 
+function sanitize($cpuName) {
+  $cpuName = str_replace(";","",$cpuName);
+  $cpuName = str_replace("'","",$cpuName);
+  $cpuName = str_replace("\"","",$cpuName);
+  $cpuName = str_replace("#","",$cpuName);
+  $cpuName = str_replace("--","",$cpuName);
+  return $cpuName;
+}
+
 function getCpuInfo($conn, $cpuName) {
   $results = array();
 
+  $cpuName = sanitize($cpuName);  
+	
   if (empty($cpuName)){
     return $results;
   }
-	
+
   if ($conn->connectionStatus) {
     die("Connection failed: " . $conn->getConnectionError());
   }
-	
+
   // Not safe, but biz.nf doesn't support prepare
   $sql = "SELECT * from CPUs where Name like '%$cpuName%'";
   $results = $conn->getQueryResults($sql);
 
-	return $results;
+  return $results;
 }
 
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));

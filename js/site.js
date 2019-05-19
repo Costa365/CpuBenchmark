@@ -19,11 +19,16 @@ function viewInfo() {
     if(this.readyState === 4) {
       if(this.status === 200) {
         var data = this.responseText;
-        var jsonResponse = JSON.parse(data);
-        if(Object.keys(jsonResponse).length > 0) {
-          showCpuGridData(jsonResponse);
-        }
-        else {
+        
+        try {
+          var jsonResponse = JSON.parse(data);
+          if(Object.keys(jsonResponse).length > 0) {
+            showCpuGridData(jsonResponse);
+          }
+          else {
+            showCpuGridData([]);
+          }
+        }catch(e){
           showCpuGridData([]);
         }
       } else {
