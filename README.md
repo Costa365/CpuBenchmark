@@ -1,5 +1,5 @@
 # CpuBenchmark
-CPU Benchmark PHP application. Hosted on [cpubenchmark.co.nf](http://cpubenchmark.co.nf/).
+CPU Benchmark PHP application. Hosted on [costa365.rf.gd/cpubenchmark/](http://costa365.rf.gd/cpubenchmark/).
 
 ## Database
 The data is stored in the following table:
