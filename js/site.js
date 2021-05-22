@@ -57,13 +57,14 @@ function showCpuGridData(results) {
     document.getElementById("cpu-info-results-grid").style.display = "block";
     // specify the columns
     columnDefs = [
-      {headerName: "Name", field: "name", width: 265, suppressSizeToFit: false},
+      {headerName: "Name", field: "name", width: 255, suppressSizeToFit: false},
       {headerName: "CPU Mark", field: "cpuMark", width: 100, suppressSizeToFit: false},
-      {headerName: "Cores", field: "cores", width: 230, suppressSizeToFit: false},
-      {headerName: "Type", field: "cpuType", width: 100, suppressSizeToFit: false},
+      {headerName: "Cores", field: "cores", width: 90, suppressSizeToFit: false},
+      {headerName: "Threads", field: "threads", width: 90, suppressSizeToFit: false},
+      {headerName: "Type", field: "cpuType", width: 140, suppressSizeToFit: false},
       {headerName: "Single Thread Mark", field: "singleThreadMark", width: 160, suppressSizeToFit: false},
       {headerName: "TDP", field: "tdp", width: 70, suppressSizeToFit: false},
-      {headerName: "Power Perf", field: "powerPerf", width: 110, suppressSizeToFit: false},
+      {headerName: "Power Perf", field: "powerPerf", width: 130, suppressSizeToFit: false},
       {headerName: "Released", field: "releaseDate", width: 100, suppressSizeToFit: false}
     ];
   
