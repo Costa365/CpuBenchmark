@@ -5,7 +5,6 @@ with open('cpus.json') as f:
 
 print ('INSERT INTO CPUs (Name, Cores, Threads, Type, CpuMark, SingleThreadMark, TDP, PowerPerf, Socket, ReleaseDate) VALUES')
 
-#('Intel i7-1234', '2 (2 logical cores per physical)', 'Desktop', 9876, 1004, 35, 88, 'Apr 2010'),
 for cpu in cpus['data']:
     cpumark = int(cpu['cpumark'].replace(',',''))
     singlethreadmark = 0 

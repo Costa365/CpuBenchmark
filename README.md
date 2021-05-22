@@ -33,4 +33,3 @@ username = xxx
 password = xxx
 dbname = xx
 ```
-print (
