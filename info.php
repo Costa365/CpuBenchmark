@@ -30,7 +30,7 @@ function getCpuInfo($conn, $cpuName) {
   $results = array();
 
   $cpuName = sanitize($cpuName);  
-	
+    
   if (empty($cpuName)){
     return $results;
   }
@@ -39,9 +39,14 @@ function getCpuInfo($conn, $cpuName) {
     die("Connection failed: " . $conn->getConnectionError());
   }
 
-  // Not safe, but biz.nf doesn't support prepare
-  $sql = "SELECT * from CPUs where Name like '%$cpuName%'";
-  $results = $conn->getQueryResults($sql);
+  // Use prepared statements to prevent SQL injection
+  $sql = "SELECT * FROM CPUs WHERE Name REGEXP ?";
+  $stmt = $conn->prepare($sql);
+  $pattern = str_replace(' ', '[^a-zA-Z0-9]*', $cpuName);
+  $stmt->bind_param("s", $pattern);
+  $stmt->execute();
+  $results = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+  $stmt->close();
 
   return $results;
 }

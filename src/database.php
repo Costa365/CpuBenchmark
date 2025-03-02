@@ -6,11 +6,17 @@ require_once('src/databaseConfig.php');
 class database {
 
   private $conn;
+  public $connectionStatus;
   
   public function __construct($dbCfg) {    
+    $this->connectionStatus = false;
     $this->conn = new mysqli(
       $dbCfg->servername(), $dbCfg->username(), 
       $dbCfg->password(), $dbCfg->dbname());
+
+    if ($this->conn->connect_error) {
+      $this->connectionStatus = true;
+    }
   }
   
   public function __destruct() {
@@ -25,6 +31,10 @@ class database {
 
   public function getConnectionError() {
     return $this->conn->connect_error;
+  }
+
+  public function prepare($sql) {
+    return $this->conn->prepare($sql);
   }
 
   public function getQueryResults($sql) {
