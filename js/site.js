@@ -13,6 +13,7 @@ var first = true;
 
 function viewInfo() {
   var cpuName = $('#cpu-name').val();
+  var append = $('#append-checkbox').is(':checked');
   showBusyCursor(true);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -23,16 +24,29 @@ function viewInfo() {
         try {
           var jsonResponse = JSON.parse(data);
           if(Object.keys(jsonResponse).length > 0) {
+            if (append) {
+              var existingData = [];
+              gridOptions.api.forEachNode(function(node) {
+                existingData.push(node.data);
+              });
+              jsonResponse = existingData.concat(jsonResponse);
+            }
             showCpuGridData(jsonResponse);
           }
           else {
-            showCpuGridData([]);
+            if (!append) {
+              showCpuGridData([]);
+            }
           }
         }catch(e){
-          showCpuGridData([]);
+          if (!append) {
+            showCpuGridData([]);
+          }
         }
       } else {
-        showCpuGridData([]);
+        if (!append) {
+          showCpuGridData([]);
+        }
       }
       showBusyCursor(false);
     }
