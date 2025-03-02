@@ -7,7 +7,7 @@ The data is stored in the following table in a MySQL database:
 CREATE TABLE `CPUs` (
   `Name` varchar(255) CHARACTER SET latin1 NOT NULL,
   `Cores` int(11) DEFAULT NULL,
-  `Treads` int(11) DEFAULT NULL,
+  `Threads` int(11) DEFAULT NULL,
   `Type` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
   `CpuMark` int(11) DEFAULT NULL,
   `SingleThreadMark` int(11) DEFAULT NULL,
