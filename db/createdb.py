@@ -19,5 +19,8 @@ for cpu in cpus['data']:
 
     cores = int(cpu['cores'])
     threads = int(cpu['logicals']) * cores
-    print (f"('{cpu['name']}', {cores}, {threads},'{cpu['cat']}', {cpumark}, {singlethreadmark}, {tdp}, {powerperf},'{cpu['socket']}', '{cpu['date']}'),")
+    secCores = int(cpu['secondaryCores'])
+    secThreads = int(cpu['secondaryLogicals']) * secCores
+
+    print (f"('{cpu['name']}', {cores+secCores}, {threads+secThreads},'{cpu['cat']}', {cpumark}, {singlethreadmark}, {tdp}, {powerperf},'{cpu['socket']}', '{cpu['date']}'),")
 
