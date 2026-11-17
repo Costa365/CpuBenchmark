@@ -79,7 +79,11 @@ function showCpuGridData(results) {
       {headerName: "Single Thread Mark", field: "SingleThreadMark", width: 160, suppressSizeToFit: false},
       {headerName: "TDP", field: "TDP", width: 70, suppressSizeToFit: false},
       {headerName: "Power Perf", field: "PowerPerf", width: 130, suppressSizeToFit: false},
-      {headerName: "Released", field: "ReleaseDate", width: 100, suppressSizeToFit: false}
+      {headerName: "Released", field: "ReleaseDate", width: 100, suppressSizeToFit: false,
+        comparator: function(a, b) {
+          return (a && Date.parse('1 ' + a) || 0) - (b && Date.parse('1 ' + b) || 0);
+        }
+      }
     ];
   
     // let the grid know which columns and what data to use
